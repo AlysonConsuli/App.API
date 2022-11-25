@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string ShortName { get; set; }
 
-        public virtual IList<Character> Character { get; set; }
+        public virtual IList<Character> Characters { get; set; }
     }
 }
