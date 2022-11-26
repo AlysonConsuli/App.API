@@ -5,7 +5,7 @@ namespace App.API.Models.Country
     public abstract class BaseCountryDto
     {
         [Required]
-        public int Name { get; set; }
-        public int ShortName { get; set; }
+        public string Name { get; set; }
+        public string ShortName { get; set; }
     }
 }
