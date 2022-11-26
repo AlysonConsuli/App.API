@@ -15,6 +15,7 @@ namespace App.API.Configurations
             CreateMap<Country, UpdateCountryDto>().ReverseMap();
 
             CreateMap<Character, CharacterDto>().ReverseMap();
+            CreateMap<Character, CreateCharacterDto>().ReverseMap();
         }
     }
 }
