@@ -9,6 +9,7 @@ using App.API.Data;
 using AutoMapper;
 using App.API.Models.Country;
 using App.API.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.API.Controllers
 {
@@ -102,6 +103,7 @@ namespace App.API.Controllers
 
         // DELETE: api/Countries/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteCountry(int id)
         {
             var country = await _countriesRepository.GetAsync(id);

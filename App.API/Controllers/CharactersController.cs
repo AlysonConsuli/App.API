@@ -9,6 +9,7 @@ using App.API.Data;
 using AutoMapper;
 using App.API.Models.Character;
 using App.API.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StarWars.API.Controllers
 {
@@ -103,6 +104,7 @@ namespace StarWars.API.Controllers
 
         // DELETE: api/Characters/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteCharacter(int id)
         {
             var character = await _charactersRepository.GetAsync(id);

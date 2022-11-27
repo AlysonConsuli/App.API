@@ -1,6 +1,7 @@
 ﻿using App.API.Data;
 using App.API.Models.Character;
 using App.API.Models.Country;
+using App.API.Models.Users;
 using AutoMapper;
 
 namespace App.API.Configurations
@@ -16,6 +17,8 @@ namespace App.API.Configurations
 
             CreateMap<Character, CharacterDto>().ReverseMap();
             CreateMap<Character, CreateCharacterDto>().ReverseMap();
+
+            CreateMap<ApiUserDto, ApiUser>().ReverseMap();
         }
     }
 }
