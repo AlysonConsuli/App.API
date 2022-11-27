@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using App.API.Data.Configurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Data
@@ -17,43 +18,9 @@ namespace App.API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Country>().HasData(
-                new Country
-                {
-                    Id= 1,
-                    Name = "Brasil",
-                    ShortName = "BR"
-                },
-                new Country
-                {
-                    Id = 2,
-                    Name = "Estados Unidos",
-                    ShortName = "EUA"
-                },
-                new Country
-                {
-                    Id = 3,
-                    Name = "Tatooine",
-                    ShortName = "TA"
-                }
-            );
-
-            modelBuilder.Entity<Character>().HasData(
-                new Character
-                {
-                    Id = 1,
-                    Name = "Luke Skywalker",
-                    Side = "light",
-                    CountryId = 3,
-                },
-                new Character
-                {
-                    Id = 2,
-                    Name = "Darth Vader",
-                    Side = "dark",
-                    CountryId = 3,
-                }
-            );
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new CountryConfiguration());
+            modelBuilder.ApplyConfiguration(new CharacterConfiguration());
         }
 
     }
