@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Data
 {
-    public class StarWarsDbContext : DbContext
+    public class StarWarsDbContext : IdentityDbContext<ApiUser>
     {
         public StarWarsDbContext(DbContextOptions options) : base(options)
         {

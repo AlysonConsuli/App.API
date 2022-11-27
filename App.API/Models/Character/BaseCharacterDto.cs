@@ -6,7 +6,6 @@ namespace App.API.Models.Character
     {
         [Required]
         public string Name { get; set; }
-        [Required]
         public string Side { get; set; }
         [Required]
         [Range(1, int.MaxValue)]

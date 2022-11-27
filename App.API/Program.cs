@@ -2,6 +2,7 @@ using App.API.Configurations;
 using App.API.Contracts;
 using App.API.Data;
 using App.API.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -13,6 +14,10 @@ var connectionString = builder.Configuration.GetConnectionString("StarWarsDbConn
 builder.Services.AddDbContext<StarWarsDbContext>(options => {
     options.UseSqlServer(connectionString);
 });
+
+builder.Services.AddIdentityCore<ApiUser>()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<StarWarsDbContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
